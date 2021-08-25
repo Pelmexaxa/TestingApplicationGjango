@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <!-- Кодировка веб-страницы -->
+  <meta charset="utf-8">
+  <!-- Настройка viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Список постов </title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  
+</head>
+
+<body>
+    <div class="table-responsive"> 
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Пользователь</th>
+          <th>Заголовок</th>
+          <th>Пост</th>
+        </tr>
+      </thead>
+    
+    <tbody>
+        {% for i in person %}
+            {% for n in post %}
+                {% if i.id == n.userId %}
+                        <tr class= "table-light">
+                            <td>{{i.name}}</td>
+                            <td>{{n.title}}</td>
+                            <td>{{n.content}}</td>
+                        </tr>
+                {% endif %}
+            {% endfor %}
+            <tr class= "table-success">
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+    </div> 
+</body>
